@@ -8,6 +8,19 @@
 //include the database class
 require_once("database/dbconnectclass.php");
 
+if (isset($_POST['update'])) {
+  update_cart($_POST['qty_id'], $_REQUEST['quantity']);
+  error_reporting(E_ERROR | E_PARSE);
+  header('location: cart.php');
+}
+
+if (isset($_POST['remove']))
+{
+  removecart($_POST['qty_id']);
+  error_reporting(E_ERROR | E_PARSE);
+  header('location: cart.php');
+}
+
 /**
 * method to load all categories
 */
@@ -61,7 +74,7 @@ function loadAllproducts(){
       <div class="block2-overlay trans-0-4">
       <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
       <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-      <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+      <i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
       </a>
 
       <div class="block2-btn-addcart w-size1 trans-0-4">
@@ -117,7 +130,7 @@ function cart($id)
  else{
    $insert ="insert into cart (p_id, ip_add, qty) VALUES ('$id', '$ip', 1)";
    $insert_query = $loadcart->query($insert);
-   echo "<script>window.open('index.php','_self')</script>";
+   echo "<script>window.open('home.php','_self')</script>";
  }
 }
 
@@ -170,17 +183,42 @@ function totalPrice(){
   $products =  $loadprice->fetchResultObject();
   foreach ($products as $product) {
     $pro_id = $product['p_id'];
-    $p = "select * from products where product_id = '$pro_id'";
+    $p = "SELECT  (cart.qty *products.product_price) total_price FROM products,cart WHERE products.product_id=cart.p_id ";
     $pp = $loadprice1->query($p);
     $values = $loadprice1->fetchResultObject();
     $values_sum = 0;
     foreach ($values as $value) {
-      $values_sum += $value['product_price'];
+      $values_sum += $value['total_price'];
     }
-    $total_price += $values_sum;
+    //$total_price += $values_sum;
   }
-  echo $total_price;
+  echo $values_sum;
 }
+
+
+// function totalprice(){
+//   $total_price = 0;
+//   $loadprice = new DatabaseConnection;
+//   $loadprice1 = new DatabaseConnection;
+//   $ip = getIP();
+//   $getPrice = "select * from cart where ip_add ='$ip'";
+//   $query_price = $loadprice ->query($getPrice);
+//   // $item_price = $loadprice->fetch();
+
+//   $products =  $loadprice->fetchResultObject();
+//   $values = array();
+//   $sql="SELECT  (cart.qty *products.product_price) total_price FROM products,cart WHERE products.product_id=cart.p_id ";
+//   foreach ($products as $product) {
+//     $pro_id = $product['p_id'];
+//     // $p = "select * from products where product_id = '$pro_id'";
+    
+//     $pp = $loadprice1->query($sql);
+    
+//   }
+//   array_push($values, $loadprice1->fetchResultObject());
+//   return $values;
+
+// }
 
 
 function loadcart(){
@@ -194,14 +232,29 @@ function loadcart(){
 
   $products =  $loadprice->fetchResultObject();
   $values = array();
+  $sql="SELECT product_id, product_image, product_title, qty, product_price, (cart.qty *products.product_price) total_price FROM products,cart WHERE products.product_id=cart.p_id ";
   foreach ($products as $product) {
     $pro_id = $product['p_id'];
-    $p = "select * from products where product_id = '$pro_id'";
-    $pp = $loadprice1->query($p);
-    array_push($values, $loadprice1->fetchResultObject());
+    // $p = "select * from products where product_id = '$pro_id'";
+    
+    $pp = $loadprice1->query($sql);
+    
   }
+  array_push($values, $loadprice1->fetchResultObject());
   return $values;
-  var_dump($values);
+  //var_dump($values);
+}
+
+function update_cart($id, $qty)
+{
+  $add=new DatabaseConnection();
+  $ip_add = getIP();
+  $sql2= "UPDATE cart set qty= '$qty' WHERE p_id = '$id' AND ip_add ='$ip_add'";
+  $result=$add->query($sql2);
+
+  echo "Updated successfully";
+  error_reporting(E_ERROR | E_PARSE);
+  header('location: cart.php'); 
 }
 
 
@@ -239,7 +292,7 @@ function checkout(){
 
   // if continue shopping button is clicked
 if (isset($_POST['shopping'])){
-  header('Location:index.php');
+  header('Location:home.php');
 }
 
 

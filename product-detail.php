@@ -71,7 +71,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="home.html" class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -80,24 +80,22 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="index.php">Home</a>
-								<ul class="sub_menu">
-									<li><a href="index.html">Homepage V1</a></li>
-									<li><a href="home-02.html">Homepage V2</a></li>
-									<li><a href="home-03.html">Homepage V3</a></li>
-								</ul>
+								<a href="home.php">Home</a>
+								
+							</li>
+							<li>
+								<a href="cart.php">Cart</a>
+							</li>
+
+							
+
+							
+							<li>
+								<a href="about.php">About</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
-							</li>
-
-							<li>
-								<a href="about.html">About</a>
-							</li>
-
-							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -195,7 +193,7 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a href="home.html" class="logo-mobile">
 				<img src="images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
@@ -332,12 +330,8 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.php">Home</a>
-						<ul class="sub-menu">
-							<li><a href="index.html">Homepage V1</a></li>
-							<li><a href="home-02.html">Homepage V2</a></li>
-							<li><a href="home-03.html">Homepage V3</a></li>
-						</ul>
+						<a href="home.php">Home</a>
+						
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
@@ -371,7 +365,7 @@
 
 	<!-- breadcrumb -->
 	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
-		<a href="index.html" class="s-text16">
+		<a href="home.php" class="s-text16">
 			Product Details
 			<!-- <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i> -->
 		</a>
@@ -480,11 +474,11 @@
 				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
 					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
 						Description
-						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="down-mark fs-12 color1 fa fa-minus dis-home" aria-hidden="true"></i>
 						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
 					</h5>
 
-					<div class="dropdown-content dis-none p-t-15 p-b-23">
+					<div class="dropdown-content dis-home p-t-15 p-b-23">
 						<p class="s-text8">
 						 <?echo $desc ?>
 						</p>
@@ -494,11 +488,11 @@
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
 						Additional information
-						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="down-mark fs-12 color1 fa fa-minus dis-home" aria-hidden="true"></i>
 						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
 					</h5>
 
-					<div class="dropdown-content dis-none p-t-15 p-b-23">
+					<div class="dropdown-content dis-home p-t-15 p-b-23">
 						<p class="s-text8">
 							 <?echo $desc ?>
 						</p>
@@ -508,11 +502,11 @@
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
 						Reviews (0)
-						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="down-mark fs-12 color1 fa fa-minus dis-home" aria-hidden="true"></i>
 						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
 					</h5>
 
-					<div class="dropdown-content dis-none p-t-15 p-b-23">
+					<div class="dropdown-content dis-home p-t-15 p-b-23">
 						<p class="s-text8">
 						NO REVIEWS FOR THIS PRODUCT
 					
@@ -546,7 +540,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -579,7 +573,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -612,7 +606,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -645,7 +639,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -682,7 +676,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -715,7 +709,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -748,7 +742,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
@@ -781,7 +775,7 @@
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-home" aria-hidden="true"></i>
 									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
