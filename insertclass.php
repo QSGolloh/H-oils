@@ -2,7 +2,7 @@
 <?php
 /**
  *@author Selassie Golloh
- *@version 1.0 
+ *@version 1.0
  **/
 
 //include the database class
@@ -90,7 +90,7 @@ function loadAllproducts(){
       <div class="block2-txt p-t-20">
       <a href="product-detail.php?img='.$image.'&price='.$price.'&name='.$name.'&desc='.$desc.'"" class="block2-name dis-block s-text3 p-b-5">
       '.$name.'
-      </a> 
+      </a>
 
       <span class="block2-price m-text6 p-r-5">
       $'.$price.'
@@ -211,15 +211,14 @@ function totalPrice(){
 //   foreach ($products as $product) {
 //     $pro_id = $product['p_id'];
 //     // $p = "select * from products where product_id = '$pro_id'";
-    
+
 //     $pp = $loadprice1->query($sql);
-    
+
 //   }
 //   array_push($values, $loadprice1->fetchResultObject());
 //   return $values;
 
 // }
-
 
 function loadcart(){
   $total_price = 0;
@@ -236,9 +235,9 @@ function loadcart(){
   foreach ($products as $product) {
     $pro_id = $product['p_id'];
     // $p = "select * from products where product_id = '$pro_id'";
-    
+
     $pp = $loadprice1->query($sql);
-    
+
   }
   array_push($values, $loadprice1->fetchResultObject());
   return $values;
@@ -254,14 +253,14 @@ function update_cart($id, $qty)
 
   echo "Updated successfully";
   error_reporting(E_ERROR | E_PARSE);
-  header('location: cart.php'); 
+  header('location: cart.php');
 }
 
 
 if (isset($_POST['remove'])){
   $id=$_POST['cart_id'];
   echo "in remove";
-  removecart($id); 
+  removecart($id);
 }
 
 function removecart($id){
@@ -286,7 +285,7 @@ function checkout(){
     header('Location:checkout.php');
   } else {
     header('Location:signing/login.php');
-  }  
+  }
 
 }
 
@@ -322,9 +321,3 @@ function update($id){
 }
 
 }
-
-
-
-
-
-
