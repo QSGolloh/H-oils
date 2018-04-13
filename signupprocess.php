@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once('database/dbconnectclass.php');
 
 // declare variables to hold errors
@@ -56,7 +58,7 @@ function validRegister(){
 		global $fullname_error;
 		$fullname_error = "Fullname cannot be empty or have symbols and numbers.";
 	}
-	
+
 	// check if the password and it matches the regex below
 	if(empty($passwd) || !preg_match('/^(?=.*[A-Z].{1,})(?=.*[!@#$&%~?*])(?=.*[0-9])(?=.*[a-z]).{6,}$/', $passwd)){
 		global $pasword_error;
@@ -110,7 +112,7 @@ function validRegister(){
 	if ($everythingOkay){
 		checkUsername();
 	}
-	
+
 }
 
 /**
@@ -132,7 +134,7 @@ function checkUsername(){
 	} else {
 		registerNewUser();
 	}
-	
+
 }
 
 
@@ -156,7 +158,7 @@ function registerNewUser(){
 	$hashed_password = password_hash($passwd, PASSWORD_DEFAULT);
 
 	// query to insert the user into the database
-	$insert_query = "INSERT INTO customer(customer_ip, customer_name, customer_email, customer_pass, 
+	$insert_query = "INSERT INTO customer(customer_ip, customer_name, customer_email, customer_pass,
 		customer_country, customer_city, customer_contact, customer_image, customer_address)
 		 VALUES('$cust_ip', '$fullname',  '$email', '$hashed_password', '$country', '$city', '$contact', '$image', '$address');";
 		 // var_dump($insert_query);
@@ -179,16 +181,13 @@ function validLogin(){
 	// take the user's deatils
 	if (isset($_POST['email']) && isset($_POST['password'])){
 		$email = $_POST['email'];
-	$passwd = $_POST['password'];
+		$passwd = $_POST['password'];
 	}
-	
-
 	// check if the user details are not empty
 	if (empty($email)){
 		global $user_name_error;
 		$user_name_error = "Please provide a email";
-	} 
-
+	}
 	if (empty($passwd)){
 		global $pasword_error;
 		$pasword_error = "Please provide a password";
@@ -219,7 +218,10 @@ function verifyLogin(){
 				$_SESSION['customer_id'] = $row['customer_id'];
 				$_SESSION['customer_email'] = $row['customer_email'];
 				$_SESSION['customer_name'] = $row['customer_name'];
-                
+				$_SESSION['customer_address'] = $row['customer_address'];
+				$_SESSION['customer_contact'] = $row['customer_contact'];
+
+
 				header('Location:../cart.php');
 				echo "Login successful";
 			}else {
