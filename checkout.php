@@ -36,7 +36,7 @@ foreach ($cartitems as $key) {
   <center style="margin-top: 2%">
     <h1>Payment</h1>
   </center>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
     <div class="container" style="margin-top: -2%">
       <div class="row">
 
@@ -45,7 +45,6 @@ foreach ($cartitems as $key) {
             <div class="receipt-header">
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="receipt-left">
-
                 </div>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6 text-right">
@@ -169,7 +168,7 @@ foreach ($cartitems as $key) {
     </div>
 
     <!-- Identify your business so that you can collect the payments. -->
-    <input type="hidden" name="H-Oils" value="hoilsghana@gmail.com">
+    <input type="hidden" name="business" value="hoilsghana@gmail.com">
 
     <!-- Specify a Buy Now button. -->
     <input type="hidden" name="cmd" value="_xclick">

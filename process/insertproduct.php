@@ -33,7 +33,7 @@
 </head>
 <body class="animsition">
 	  <?php
-  require_once("../insertclass.php"); ?>
+  include_once("../insertclass.php"); ?>
 
 	<!-- Header -->
 	<header class="header1">
@@ -381,7 +381,7 @@
 	<!-- Title Page -->
 	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/about.jpg);">
 		<h2 style="color:chocolate;" class="l-text2 t-center">
-			New Product 
+			New Product
 		</h2>
 	</section>
 
@@ -409,10 +409,10 @@ onsubmit="return validateForm()" method="post">
 
 						<select class="bo4 of-hidden size15 m-b-20" id="catSelect" name="category" required>
 							<option value="0">Please select a category...</option>
-							<!-- <option value="1">Woodin</option>--> 
+							<!-- <option value="1">Woodin</option>-->
 							<?php loadAllCategories(); ?>
 						</select>
-						
+
 
 						<select class="bo4 of-hidden size15 m-b-20" id="brandSelect" name="brand" required>
 							<option value="0">Please select a brand...</option>
@@ -428,7 +428,7 @@ onsubmit="return validateForm()" method="post">
 						</div>
 
 						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="description" id="description" placeholder="Enter description here..."></textarea>
-						
+
 						<div class="w-size25">
 							<!-- Button -->
 							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" name ="submit" >
